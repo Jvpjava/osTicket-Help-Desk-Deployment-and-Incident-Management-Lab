@@ -12,8 +12,6 @@ You can **paste this directly into your README.md**.
 
 # osTicket Help Desk Deployment and Incident Management Lab
 
----
-
 # Overview
 
 This project demonstrates the deployment, configuration, and operational use of an **osTicket help desk system** hosted inside a **Microsoft Azure virtual machine environment**.
