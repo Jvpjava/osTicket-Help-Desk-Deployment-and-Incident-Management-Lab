@@ -1,9 +1,3 @@
-Below is the **clean GitHub Markdown version without horizontal lines**. GitHub automatically separates headings visually, so removing them makes the README look **cleaner and more professional**.
-
-You can **paste this directly into your README.md**.
-
----
-
 # osTicket Help Desk Deployment and Incident Management Lab
 
 ## Overview
