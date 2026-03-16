@@ -1,10 +1,4 @@
-Below is your content rewritten in **clean GitHub Markdown** so that:
-
-* Titles render correctly
-* Subtitles are clear
-* Horizontal lines appear on GitHub
-* Bullet lists format properly
-* Code blocks display correctly
+Below is the **clean GitHub Markdown version without horizontal lines**. GitHub automatically separates headings visually, so removing them makes the README look **cleaner and more professional**.
 
 You can **paste this directly into your README.md**.
 
@@ -12,7 +6,7 @@ You can **paste this directly into your README.md**.
 
 # osTicket Help Desk Deployment and Incident Management Lab
 
-# Overview
+## Overview
 
 This project demonstrates the deployment, configuration, and operational use of an **osTicket help desk system** hosted inside a **Microsoft Azure virtual machine environment**.
 
@@ -26,7 +20,7 @@ The project covers three major phases:
 
 ---
 
-# Technologies Used
+## Technologies Used
 
 * Microsoft Azure
 * Windows 10 Virtual Machine
@@ -39,7 +33,7 @@ The project covers three major phases:
 
 ---
 
-# Environment Setup
+## Environment Setup
 
 The help desk system was hosted inside an **Azure Windows 10 virtual machine**.
 
@@ -56,15 +50,13 @@ The VM was accessed remotely using **Remote Desktop Protocol (RDP)** to perform 
 
 ---
 
-# Phase 1 — Help Desk System Deployment
+## Phase 1 — Help Desk System Deployment
 
----
-
-## Creating the Virtual Machine
+### Creating the Virtual Machine
 
 A Windows 10 virtual machine was deployed in **Microsoft Azure** to host the help desk system.
 
-### VM Configuration
+#### VM Configuration
 
 ```
 VM Name: osticket-vm
@@ -75,11 +67,11 @@ After deployment, the machine was accessed using **Remote Desktop** to begin ins
 
 ---
 
-## Installing the IIS Web Server
+### Installing the IIS Web Server
 
 Internet Information Services (IIS) was enabled to host the osTicket web application.
 
-### Configuration Steps
+#### Configuration Steps
 
 1. Open **Windows Features**
 2. Enable **Internet Information Services**
@@ -89,11 +81,11 @@ This allows IIS to execute **PHP applications required by osTicket**.
 
 ---
 
-## Installing PHP and Required Dependencies
+### Installing PHP and Required Dependencies
 
 Several components were installed to support PHP applications.
 
-### Installed Components
+#### Installed Components
 
 * PHP Manager for IIS
 * IIS URL Rewrite Module
@@ -110,11 +102,11 @@ The PHP runtime was registered inside IIS using **PHP Manager**.
 
 ---
 
-## Installing MySQL Database
+### Installing MySQL Database
 
 MySQL was installed to store help desk data including **users, tickets, and configuration settings**.
 
-### Database Configuration
+#### Database Configuration
 
 ```
 Username: root
@@ -123,7 +115,7 @@ Password: root
 
 A database management tool called **HeidiSQL** was installed to create and manage the osTicket database.
 
-### Database Created
+#### Database Created
 
 ```
 osTicket
@@ -131,11 +123,11 @@ osTicket
 
 ---
 
-## Installing osTicket
+### Installing osTicket
 
 The osTicket application files were installed inside the IIS web directory.
 
-### Installation Steps
+#### Installation Steps
 
 1. Extract osTicket installation files
 2. Copy the **upload** folder into:
@@ -156,11 +148,11 @@ The osTicket installer was then accessed through the browser.
 
 ---
 
-## Enabling Required PHP Extensions
+### Enabling Required PHP Extensions
 
 Some PHP modules required by osTicket were initially disabled.
 
-### Enabled Extensions
+#### Enabled Extensions
 
 ```
 php_imap.dll
@@ -172,11 +164,11 @@ These modules allow **email integration, localization support, and improved perf
 
 ---
 
-## Completing the Web Installer
+### Completing the Web Installer
 
 The final installation was completed through the browser installer.
 
-### Database Configuration Used
+#### Database Configuration Used
 
 ```
 Database Name: osTicket
@@ -184,15 +176,15 @@ Username: root
 Password: root
 ```
 
-### Accessing the System
+#### Accessing the System
 
-**End User Portal**
+End User Portal
 
 ```
 http://localhost/osTicket
 ```
 
-**Admin Portal**
+Admin Portal
 
 ```
 http://localhost/osTicket/scp/login.php
@@ -200,17 +192,17 @@ http://localhost/osTicket/scp/login.php
 
 ---
 
-## Security Cleanup
+### Security Cleanup
 
 After installation, setup files were removed to secure the system.
 
-### Removed Directory
+#### Removed Directory
 
 ```
 C:\inetpub\wwwroot\osTicket\setup
 ```
 
-### Restricted Configuration File
+#### Restricted Configuration File
 
 ```
 C:\inetpub\wwwroot\osTicket\include\ost-config.php
@@ -220,15 +212,13 @@ Permissions were changed to **read-only**.
 
 ---
 
-# Phase 2 — Help Desk System Configuration
+## Phase 2 — Help Desk System Configuration
 
 After installing the platform, the help desk environment was configured to simulate a **real IT support organization**.
 
----
+### Agent Panel vs Admin Panel
 
-## Agent Panel vs Admin Panel
-
-### Agent Panel
+#### Agent Panel
 
 Used by support technicians to:
 
@@ -237,7 +227,7 @@ Used by support technicians to:
 * Troubleshoot issues
 * Resolve incidents
 
-### Admin Panel
+#### Admin Panel
 
 Used by administrators to configure:
 
@@ -249,17 +239,17 @@ Used by administrators to configure:
 
 ---
 
-## Configuring Roles
+### Configuring Roles
 
 Roles define **permission levels for help desk agents**.
 
-### Navigation
+#### Navigation
 
 ```
 Admin Panel → Agents → Roles
 ```
 
-### Role Created
+#### Role Created
 
 ```
 Supreme Admin
@@ -269,17 +259,17 @@ This role provides **full administrative access**.
 
 ---
 
-## Configuring Departments
+### Configuring Departments
 
 Departments determine **which team handles a support request**.
 
-### Navigation
+#### Navigation
 
 ```
 Admin Panel → Agents → Departments
 ```
 
-### Department Created
+#### Department Created
 
 ```
 SysAdmins
@@ -293,17 +283,17 @@ Departments simulate real IT teams such as:
 
 ---
 
-## Configuring Teams
+### Configuring Teams
 
 Teams allow agents from multiple departments to collaborate on incidents.
 
-### Navigation
+#### Navigation
 
 ```
 Admin Panel → Agents → Teams
 ```
 
-### Example Team
+#### Example Team
 
 ```
 Online Banking
@@ -311,17 +301,17 @@ Online Banking
 
 ---
 
-## Configuring Support Agents
+### Configuring Support Agents
 
 Agents represent the technicians responsible for resolving tickets.
 
-### Navigation
+#### Navigation
 
 ```
 Admin Panel → Agents → Add New
 ```
 
-### Agents Created
+#### Agents Created
 
 ```
 Jane (SysAdmins)
@@ -330,17 +320,17 @@ John (Support)
 
 ---
 
-## Creating End Users
+### Creating End Users
 
 End users represent employees or customers requesting support.
 
-### Navigation
+#### Navigation
 
 ```
 Agent Panel → Users → Add New
 ```
 
-### Users Created
+#### Users Created
 
 ```
 Karen
@@ -349,17 +339,17 @@ Ken
 
 ---
 
-## Configuring SLA Policies
+### Configuring SLA Policies
 
 Service Level Agreements define **response time requirements**.
 
-### Navigation
+#### Navigation
 
 ```
 Admin Panel → Manage → SLA
 ```
 
-### Configured Policies
+#### Configured Policies
 
 **Sev-A — Critical**
 
@@ -384,17 +374,17 @@ Schedule: Business Hours
 
 ---
 
-## Configuring Help Topics
+### Configuring Help Topics
 
 Help topics categorize incoming support tickets.
 
-### Navigation
+#### Navigation
 
 ```
 Admin Panel → Manage → Help Topics
 ```
 
-### Topics Created
+#### Topics Created
 
 * Business Critical Outage
 * Personal Computer Issues
@@ -406,15 +396,13 @@ These categories help route tickets to the correct support teams.
 
 ---
 
-# Phase 3 — Ticket Lifecycle Simulation
+## Phase 3 — Ticket Lifecycle Simulation
 
 After deployment and configuration, the system was used to simulate **real help desk incidents**.
 
----
+### Ticket Scenario 1 — Online Banking Outage
 
-## Ticket Scenario 1 — Online Banking Outage
-
-### End User Ticket
+#### End User Ticket
 
 ```
 Entire mobile/online banking system is down
@@ -427,7 +415,7 @@ Agent **John** reviewed the ticket and analyzed:
 * SLA
 * Assigned technician
 
-### Ticket Classification
+#### Ticket Classification
 
 ```
 Priority: Sev-A
@@ -441,15 +429,15 @@ Jane investigated the issue, resolved the outage, and closed the ticket.
 
 ---
 
-## Ticket Scenario 2 — Accounting Software Issue
+### Ticket Scenario 2 — Accounting Software Issue
 
-### End User Request
+#### End User Request
 
 ```
-Accounting department needs Adobe upgrade, application broken
+Accounting department needs Adobe upgrade
 ```
 
-### Ticket Classification
+#### Ticket Classification
 
 ```
 Priority: Sev-B
@@ -461,15 +449,15 @@ Agent **John** handled the issue and resolved the ticket.
 
 ---
 
-## Ticket Scenario 3 — Executive Laptop Failure
+### Ticket Scenario 3 — Executive Laptop Failure
 
-### End User Request
+#### End User Request
 
 ```
 CFO’s laptop will no longer power on
 ```
 
-### Ticket Classification
+#### Ticket Classification
 
 ```
 Priority: Sev-B
@@ -481,7 +469,7 @@ The issue was investigated and resolved by the help desk team.
 
 ---
 
-## Observing Ticket Access Control
+### Observing Ticket Access Control
 
 During testing, tickets assigned to the **SysAdmins department** became inaccessible to agents without proper permissions.
 
@@ -495,7 +483,7 @@ This demonstrates how **department permissions control access to sensitive incid
 
 ---
 
-# How Ticketing Systems Work in Real IT Environments
+## How Ticketing Systems Work in Real IT Environments
 
 Most ticket systems integrate with **email notifications**.
 
@@ -517,30 +505,30 @@ Even when issues are resolved immediately, support teams create tickets to **tra
 
 ---
 
-# Skills Demonstrated
+## Skills Demonstrated
 
-## Cloud Infrastructure
+### Cloud Infrastructure
 
 * Deploying Azure virtual machines
 * Managing remote access using RDP
 
-## Web Server Administration
+### Web Server Administration
 
 * Installing and configuring IIS
 * Hosting PHP applications
 
-## Database Management
+### Database Management
 
 * Installing MySQL
 * Managing databases using HeidiSQL
 
-## Help Desk Administration
+### Help Desk Administration
 
 * Configuring support roles and permissions
 * Managing departments and teams
 * Implementing SLA policies
 
-## Incident Management
+### Incident Management
 
 * Ticket intake
 * Ticket prioritization
@@ -549,7 +537,7 @@ Even when issues are resolved immediately, support teams create tickets to **tra
 
 ---
 
-# Project Outcome
+## Project Outcome
 
 By completing this project, a **fully functional help desk system** was deployed and used to simulate real IT support operations.
 
@@ -558,8 +546,4 @@ This lab demonstrates the ability to:
 * Deploy IT infrastructure
 * Configure enterprise ticketing systems
 * Manage support workflows
-* Resolve and document technical incidents
-
----
-
-If you want, I can also show you **one small GitHub improvement that makes projects look significantly more professional to hiring managers**: a **clean screenshot layout section that visually shows the lab steps**.
+* Resolve and document technical incidents.
