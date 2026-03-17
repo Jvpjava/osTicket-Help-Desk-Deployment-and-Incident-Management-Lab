@@ -41,6 +41,10 @@ In real environments, always use a password manager such as:
 
 ## Installation Steps
 
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/Virtualbox banner.png" width="700"/>
+</p>
+
 ### 1. Prepare the VM
 
 * Go to Microsoft’s official **Windows Server 2019 Evaluation Center** page, sign in, register, and download the **ISO**. The evaluation version is listed as a **180-day trial** (Microsoft Evaluation Center: Windows Server 2019) ([Microsoft][1])
