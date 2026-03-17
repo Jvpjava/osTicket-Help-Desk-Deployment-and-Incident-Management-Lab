@@ -1,543 +1,302 @@
-# osTicket Help Desk Deployment and Incident Management Lab
+Here is **Part 1 rewritten into a clean, professional GitHub README section**. This is structured for employers to quickly understand what you did and why it matters.
+
+---
+
+# osTicket Help Desk Deployment — Part 1 (System Installation)
 
 ## Overview
 
-This project demonstrates the deployment, configuration, and operational use of an **osTicket help desk system** hosted inside a **Microsoft Azure virtual machine environment**.
+This phase of the project focuses on deploying the **osTicket help desk system** inside a **Windows 10 Azure Virtual Machine**.
 
-The lab simulates how enterprise IT departments manage support requests through a ticketing platform. The system was installed using **IIS, PHP, and MySQL**, configured for internal support operations, and tested by creating and resolving multiple support tickets.
+The objective was to build the full backend environment required to run a production-style ticketing system, including:
 
-The project covers three major phases:
+* Web server configuration (IIS)
+* PHP runtime setup
+* MySQL database installation
+* osTicket application deployment
 
-1. Help desk system deployment
-2. Post-installation system configuration
-3. Real-world ticket lifecycle simulation
+This simulates how IT teams deploy internal support systems in real environments.
 
----
-
-## Technologies Used
-
-* Microsoft Azure
-* Windows 10 Virtual Machine
-* Internet Information Services (IIS)
-* PHP 7.3
-* MySQL 5.5
-* HeidiSQL
-* osTicket v1.15
-* Remote Desktop Protocol (RDP)
+This implementation followed a structured lab process. 
 
 ---
 
-## Environment Setup
+# Environment Setup
 
-The help desk system was hosted inside an **Azure Windows 10 virtual machine**.
+## Azure Virtual Machine Configuration
 
-### Infrastructure Components
+A Windows 10 virtual machine was created in Microsoft Azure.
 
-* Azure Resource Group
-* Windows 10 Virtual Machine (`osticket-vm`)
-* IIS Web Server
-* PHP runtime environment
-* MySQL database server
-* osTicket ticketing system
-
-The VM was accessed remotely using **Remote Desktop Protocol (RDP)** to perform installation and configuration.
-
----
-
-## Phase 1 — Help Desk System Deployment
-
-### Creating the Virtual Machine
-
-A Windows 10 virtual machine was deployed in **Microsoft Azure** to host the help desk system.
-
-#### VM Configuration
-
-```
+```bash
 VM Name: osticket-vm
 Username: labuser
 ```
 
-After deployment, the machine was accessed using **Remote Desktop** to begin installation.
+The system was accessed using **Remote Desktop Protocol (RDP)** to perform all configurations.
 
 ---
 
-### Installing the IIS Web Server
+# Web Server Configuration (IIS)
 
-Internet Information Services (IIS) was enabled to host the osTicket web application.
+Internet Information Services (IIS) was installed to host the osTicket web application.
 
-#### Configuration Steps
+### Features Enabled
 
-1. Open **Windows Features**
-2. Enable **Internet Information Services**
-3. Enable **CGI under Application Development Features**
+* Web Server (IIS)
+* Application Development Features
+* CGI (Required for PHP execution)
 
-This allows IIS to execute **PHP applications required by osTicket**.
+This allows IIS to process dynamic PHP content required by osTicket.
 
 ---
 
-### Installing PHP and Required Dependencies
+# PHP Installation and Configuration
 
-Several components were installed to support PHP applications.
+To support osTicket, PHP and required modules were installed.
 
-#### Installed Components
+### Components Installed
 
 * PHP Manager for IIS
-* IIS URL Rewrite Module
-* PHP 7.3 runtime
-* Visual C++ Redistributable
+* URL Rewrite Module
+* PHP 7.3 Runtime
+* Microsoft Visual C++ Redistributable
 
-A PHP runtime directory was created:
+### Directory Setup
 
-```
+```bash
 C:\PHP
 ```
 
-The PHP runtime was registered inside IIS using **PHP Manager**.
+PHP was registered in IIS using:
+
+```bash
+php-cgi.exe
+```
+
+IIS was restarted to apply changes.
 
 ---
 
-### Installing MySQL Database
+# Database Installation (MySQL)
 
-MySQL was installed to store help desk data including **users, tickets, and configuration settings**.
+MySQL was installed to handle ticket data, user records, and system configuration.
 
-#### Database Configuration
+### Configuration
 
-```
+```bash
 Username: root
 Password: root
 ```
 
-A database management tool called **HeidiSQL** was installed to create and manage the osTicket database.
+---
 
-#### Database Created
+## Issue Encountered — MySQL Access Denied
 
+### Problem
+
+During setup, MySQL failed with:
+
+```bash
+Error 1045: Access denied for user 'root'@'localhost'
 ```
-osTicket
+
+### Cause
+
+* Previous MySQL installation data remained on the system
+* Old configuration conflicted with new credentials
+
+### Fix
+
+* Fully uninstalled MySQL
+* Deleted leftover directories:
+
+```bash
+C:\ProgramData\MySQL
 ```
+
+* Reinstalled MySQL using standard configuration
+* Verified login via command line
+
+This reflects real-world troubleshooting of **service configuration conflicts**.
 
 ---
 
-### Installing osTicket
+# osTicket Application Installation
 
-The osTicket application files were installed inside the IIS web directory.
+The osTicket application was deployed into the IIS web directory.
 
-#### Installation Steps
+### Directory Path
 
-1. Extract osTicket installation files
-2. Copy the **upload** folder into:
-
-```
-C:\inetpub\wwwroot
+```bash
+C:\inetpub\wwwroot\osTicket
 ```
 
-3. Rename the folder:
+The application files were extracted and placed correctly inside this directory.
 
-```
-upload → osTicket
-```
-
-4. Restart IIS
-
-The osTicket installer was then accessed through the browser.
+IIS was restarted after deployment.
 
 ---
 
-### Enabling Required PHP Extensions
+## PHP Extensions Enabled
 
-Some PHP modules required by osTicket were initially disabled.
+The following extensions were required for osTicket functionality:
 
-#### Enabled Extensions
-
-```
+```bash
 php_imap.dll
 php_intl.dll
 php_opcache.dll
 ```
 
-These modules allow **email integration, localization support, and improved performance**.
+These support:
+
+* Email handling
+* Internationalization
+* Performance optimization
 
 ---
 
-### Completing the Web Installer
+# Configuration File Setup
 
-The final installation was completed through the browser installer.
+The default configuration file was renamed:
 
-#### Database Configuration Used
-
+```bash
+ost-sampleconfig.php → ost-config.php
 ```
+
+### Permissions Applied
+
+* Disabled inheritance
+* Assigned full control (temporary for setup)
+
+This allows the web installer to write configuration settings.
+
+---
+
+# Database Connection Setup
+
+Using **HeidiSQL**, a database was created:
+
+```bash
 Database Name: osTicket
-Username: root
-Password: root
 ```
 
-#### Accessing the System
+This database was linked during the web-based installation.
 
-End User Portal
+---
 
-```
-http://localhost/osTicket
-```
+# Accessing osTicket
 
-Admin Portal
+### Admin Portal
 
-```
+```bash
 http://localhost/osTicket/scp/login.php
 ```
 
+### End User Portal
+
+```bash
+http://localhost/osTicket/
+```
+
 ---
 
-### Security Cleanup
+# Issue Encountered — HTTP 404 Error
 
-After installation, setup files were removed to secure the system.
+### Problem
 
-#### Removed Directory
+Accessing the admin login page returned:
 
+```bash
+HTTP 404 – Not Found
 ```
+
+### Cause
+
+* Incorrect folder structure
+* osTicket files were nested inside an extra `upload` directory
+* IIS could not locate required files like:
+
+```bash
+scp/login.php
+```
+
+### Fix
+
+* Moved all contents from the `upload` folder directly into:
+
+```bash
+C:\inetpub\wwwroot\osTicket
+```
+
+* Ensured directories like `scp`, `include`, and `api` were at the root level
+
+After correcting the structure, the site loaded successfully.
+
+---
+
+# Post-Installation Security
+
+After successful installation, cleanup and security hardening steps were performed.
+
+### Removed Setup Directory
+
+```bash
 C:\inetpub\wwwroot\osTicket\setup
 ```
 
-#### Restricted Configuration File
+### Secured Configuration File
 
-```
+```bash
 C:\inetpub\wwwroot\osTicket\include\ost-config.php
 ```
 
-Permissions were changed to **read-only**.
+Permissions set to:
+
+* Read-only
+
+This prevents unauthorized modifications.
 
 ---
 
-## Phase 2 — Help Desk System Configuration
+# Skills Demonstrated
 
-After installing the platform, the help desk environment was configured to simulate a **real IT support organization**.
+### System Administration
 
-### Agent Panel vs Admin Panel
+* Windows Server configuration
+* IIS setup and management
 
-#### Agent Panel
+### Web Hosting
 
-Used by support technicians to:
-
-* View assigned tickets
-* Respond to users
-* Troubleshoot issues
-* Resolve incidents
-
-#### Admin Panel
-
-Used by administrators to configure:
-
-* Agents and permissions
-* Departments
-* Teams
-* SLA policies
-* Help topics
-
----
-
-### Configuring Roles
-
-Roles define **permission levels for help desk agents**.
-
-#### Navigation
-
-```
-Admin Panel → Agents → Roles
-```
-
-#### Role Created
-
-```
-Supreme Admin
-```
-
-This role provides **full administrative access**.
-
----
-
-### Configuring Departments
-
-Departments determine **which team handles a support request**.
-
-#### Navigation
-
-```
-Admin Panel → Agents → Departments
-```
-
-#### Department Created
-
-```
-SysAdmins
-```
-
-Departments simulate real IT teams such as:
-
-* System Administration
-* Networking
-* Help Desk Support
-
----
-
-### Configuring Teams
-
-Teams allow agents from multiple departments to collaborate on incidents.
-
-#### Navigation
-
-```
-Admin Panel → Agents → Teams
-```
-
-#### Example Team
-
-```
-Online Banking
-```
-
----
-
-### Configuring Support Agents
-
-Agents represent the technicians responsible for resolving tickets.
-
-#### Navigation
-
-```
-Admin Panel → Agents → Add New
-```
-
-#### Agents Created
-
-```
-Jane (SysAdmins)
-John (Support)
-```
-
----
-
-### Creating End Users
-
-End users represent employees or customers requesting support.
-
-#### Navigation
-
-```
-Agent Panel → Users → Add New
-```
-
-#### Users Created
-
-```
-Karen
-Ken
-```
-
----
-
-### Configuring SLA Policies
-
-Service Level Agreements define **response time requirements**.
-
-#### Navigation
-
-```
-Admin Panel → Manage → SLA
-```
-
-#### Configured Policies
-
-**Sev-A — Critical**
-
-```
-Response Time: 1 hour
-Schedule: 24/7
-```
-
-**Sev-B — High Priority**
-
-```
-Response Time: 4 hours
-Schedule: 24/7
-```
-
-**Sev-C — Standard**
-
-```
-Response Time: 8 hours
-Schedule: Business Hours
-```
-
----
-
-### Configuring Help Topics
-
-Help topics categorize incoming support tickets.
-
-#### Navigation
-
-```
-Admin Panel → Manage → Help Topics
-```
-
-#### Topics Created
-
-* Business Critical Outage
-* Personal Computer Issues
-* Equipment Request
-* Password Reset
-* Other
-
-These categories help route tickets to the correct support teams.
-
----
-
-## Phase 3 — Ticket Lifecycle Simulation
-
-After deployment and configuration, the system was used to simulate **real help desk incidents**.
-
-### Ticket Scenario 1 — Online Banking Outage
-
-#### End User Ticket
-
-```
-Entire mobile/online banking system is down
-```
-
-Agent **John** reviewed the ticket and analyzed:
-
-* Priority
-* Department
-* SLA
-* Assigned technician
-
-#### Ticket Classification
-
-```
-Priority: Sev-A
-Response Time: 1 hour
-Schedule: 24/7
-```
-
-The issue required escalation to **System Administration**, so the ticket was assigned to **Jane**.
-
-Jane investigated the issue, resolved the outage, and closed the ticket.
-
----
-
-### Ticket Scenario 2 — Accounting Software Issue
-
-#### End User Request
-
-```
-Accounting department needs Adobe upgrade
-```
-
-#### Ticket Classification
-
-```
-Priority: Sev-B
-Response Time: 4 hours
-Department: Support
-```
-
-Agent **John** handled the issue and resolved the ticket.
-
----
-
-### Ticket Scenario 3 — Executive Laptop Failure
-
-#### End User Request
-
-```
-CFO’s laptop will no longer power on
-```
-
-#### Ticket Classification
-
-```
-Priority: Sev-B
-Response Time: 4 hours
-Department: Support
-```
-
-The issue was investigated and resolved by the help desk team.
-
----
-
-### Observing Ticket Access Control
-
-During testing, tickets assigned to the **SysAdmins department** became inaccessible to agents without proper permissions.
-
-To resolve this:
-
-1. Admin panel permissions were modified
-2. John was granted **view access** to the SysAdmins department
-3. Ticket visibility was restored
-
-This demonstrates how **department permissions control access to sensitive incidents**.
-
----
-
-## How Ticketing Systems Work in Real IT Environments
-
-Most ticket systems integrate with **email notifications**.
-
-When a ticket is updated:
-
-* the user receives an email notification
-* responses can be sent through email
-* replies are automatically attached to the ticket
-
-Tickets are typically created through:
-
-* web portal
-* email
-* phone support
-* chat systems
-* walk-up requests
-
-Even when issues are resolved immediately, support teams create tickets to **track work and maintain service metrics**.
-
----
-
-## Skills Demonstrated
-
-### Cloud Infrastructure
-
-* Deploying Azure virtual machines
-* Managing remote access using RDP
-
-### Web Server Administration
-
-* Installing and configuring IIS
-* Hosting PHP applications
+* Hosting PHP applications on IIS
+* Configuring application dependencies
 
 ### Database Management
 
-* Installing MySQL
-* Managing databases using HeidiSQL
+* MySQL installation and troubleshooting
+* Database creation and integration
 
-### Help Desk Administration
+### Troubleshooting
 
-* Configuring support roles and permissions
-* Managing departments and teams
-* Implementing SLA policies
+* Resolving service authentication errors
+* Fixing web server directory structure issues
 
-### Incident Management
+### Security Practices
 
-* Ticket intake
-* Ticket prioritization
-* Incident escalation
-* Troubleshooting and resolution
+* Removing installation artifacts
+* Securing configuration files
 
 ---
 
-## Project Outcome
+# Outcome
 
-By completing this project, a **fully functional help desk system** was deployed and used to simulate real IT support operations.
+This phase demonstrates the ability to deploy a fully functional help desk system from scratch, including all required backend services.
 
-This lab demonstrates the ability to:
+The system is now ready for:
 
-* Deploy IT infrastructure
-* Configure enterprise ticketing systems
-* Manage support workflows
-* Resolve and document technical incidents.
+* Help desk configuration
+* User and role setup
+* Ticket lifecycle management
+
+---
+
+If you want next level improvement, I can combine this with Part 2 and 3 later into a **single polished portfolio project** that looks like real enterprise documentation instead of separate labs.
