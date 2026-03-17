@@ -21,22 +21,10 @@ This project demonstrates:
 
 ## Environment Setup
 
-* **Platform:** Microsoft Azure
+* **Platform:** VirtualBox
 * **Virtual Machine:** Windows Server 2019
 * **VM Name:** `DC-2019`
-* **Access Method:** Virtual Box
-
----
-
-## Security Note
-
-Passwords are shown for lab purposes only.
-In real environments, always use a password manager such as:
-
-* KeePass
-* LastPass
-* NordPass
-
+  
 ---
 
 ## Installation Steps
@@ -49,7 +37,15 @@ In real environments, always use a password manager such as:
 
 * Go to Microsoft’s official **Windows Server 2019 Evaluation Center** page, sign in, register, and download the **ISO**. The evaluation version is listed as a **180-day trial** (Microsoft Evaluation Center: Windows Server 2019) ([Microsoft][1])
 
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/Windows Evaluation Center ISO Download.png" width="700"/>
+</p>
+
 * Download and install **Oracle VirtualBox for Windows hosts** from the official VirtualBox downloads page (VirtualBox Downloads) ([VirtualBox][2])
+
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/Download Virtualbox.png" width="700"/>
+</p>
 
 * Open VirtualBox and click **New**. Name the VM something like **Windows Server 2019**, set:
 
@@ -63,6 +59,10 @@ In real environments, always use a password manager such as:
    * Create a **virtual hard disk** with about **50–60 GB**
 
 * Go into the VM **Settings > Storage**, click the empty optical drive, and attach the **Windows Server 2019 ISO** you downloaded.
+
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/Virtualbox VM'S.png" width="700"/>
+</p>
 
 * Start the VM. The Windows installer will boot. Follow the setup steps:
 
@@ -78,6 +78,10 @@ In real environments, always use a password manager such as:
 
    * **NAT** if you just want internet inside the VM
    * **Bridged Adapter** if you want the VM to appear on your home network
+
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/Virtualbox VM Sign in.png" width="700"/>
+</p>
 
 ---
 
