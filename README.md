@@ -1,5 +1,9 @@
 # osTicket Help Desk System Deployment (Virtualbox + Windows IIS)
 
+<p align="center">
+  <img src="images/Osticket%20Project%20Cover.webp" width="400"/>
+</p>
+
 ## Project Overview
 
 Deployed a fully functional **osTicket help desk system** using a Windows server 2019 Virtual Machine.
