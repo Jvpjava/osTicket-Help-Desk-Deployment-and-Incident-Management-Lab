@@ -247,7 +247,7 @@ From installation folder:
 * Restart IIS again
 
 <p align="center">
-  <img src="Lab 3 images/Part 1 images/14. Install OS Ticket.png" width="700"/>
+  <img src="Lab 3 images/Part 1 images/Restart IIS.png" width="700"/>
 </p>
 ---
 
