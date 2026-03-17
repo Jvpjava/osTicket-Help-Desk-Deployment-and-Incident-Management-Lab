@@ -1,6 +1,6 @@
-# 🛠️ osTicket Help Desk System Deployment (Virtualbox + Windows IIS)
+# osTicket Help Desk System Deployment (Virtualbox + Windows IIS)
 
-## 📌 Project Overview
+## Project Overview
 
 Deployed a fully functional **osTicket help desk system** using a Windows server 2019 Virtual Machine.
 Configured IIS, PHP, MySQL, and required dependencies to simulate a real-world IT support ticketing system.
@@ -15,7 +15,7 @@ This project demonstrates:
 
 ---
 
-## 🖥️ Environment Setup
+## Environment Setup
 
 * **Platform:** Microsoft Azure
 * **Virtual Machine:** Windows Server 2019
@@ -24,7 +24,7 @@ This project demonstrates:
 
 ---
 
-## ⚠️ Security Note
+## Security Note
 
 Passwords are shown for lab purposes only.
 In real environments, always use a password manager such as:
@@ -35,7 +35,7 @@ In real environments, always use a password manager such as:
 
 ---
 
-## ⚙️ Installation Steps
+## Installation Steps
 
 ### 1. Prepare the VM
 
@@ -70,12 +70,6 @@ In real environments, always use a password manager such as:
 
    * **NAT** if you just want internet inside the VM
    * **Bridged Adapter** if you want the VM to appear on your home network
-
-Links for vm and virtualbox:
-
-[1]: https://www.microsoft.com/en-us/evalcenter/download-windows-server-2019?utm_source=chatgpt.com "Windows Server 2019 | Microsoft Evaluation Center"
-[2]: https://www.virtualbox.org/wiki/Downloads?utm_source=chatgpt.com "Downloads"
-[3]: https://www.virtualbox.org/manual/topics/guestadditions.html?utm_source=chatgpt.com "Guest Additions"
 
 ---
 
