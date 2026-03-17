@@ -273,14 +273,30 @@ In IIS:
   ```
   Sites → Default → osTicket → PHP Manager
   ```
-
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/17. Enable extensions in php manager.png" width="700"/>
+</p>
 Enable:
 
 * php_imap.dll
 * php_intl.dll
 * php_opcache.dll
 
-Refresh the browser
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/17. PHP Extensions.png" width="700"/>
+</p>
+
+Refresh the browser and go to
+
+* http://127.0.0.1/osTicket/
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/18. Self Host website.png" width="700"/>
+</p>
+* http://127.0.0.1/osTicket/upload/setup/
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/18. OsTicket website set up.png" width="700"/>
+</p>
+
 
 ---
 
@@ -292,7 +308,9 @@ Rename config file:
 C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php
 → ost-config.php
 ```
-
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/19. Change ost-config name.png" width="700"/>
+</p>
 Set permissions:
 
 * Disable inheritance
@@ -302,7 +320,15 @@ Set permissions:
   ```
   Everyone → Full Control
   ```
-
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/20. Assign permissions ost-config.png" width="700"/>
+</p>
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/20. Everyone full control.jpg" width="700"/>
+</p>
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/20. Full control.png" width="700"/>
+</p>
 ---
 
 ### 11. Database Setup (HeidiSQL)
