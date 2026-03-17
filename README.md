@@ -1,7 +1,7 @@
 # osTicket Help Desk System Deployment (Virtualbox + Windows IIS)
 
 <p align="center">
-  <img src="Lab 3 images/Part 1 images/Osticket Project Cover.webp" width="700" height="200"/>
+  <img src="Lab 3 images/Part 1 images/Osticket Project Cover.png" width="700"/>
 </p>
 
 ## Project Overview
