@@ -1,298 +1,369 @@
-# osTicket Help Desk Deployment — Part 1 (System Installation)
+# 🛠️ osTicket Help Desk System Deployment (Virtualbox + Windows IIS)
 
-## Overview
+## 📌 Project Overview
 
-This phase of the project focuses on deploying the **osTicket help desk system** inside a **Windows 10 Azure Virtual Machine**.
+Deployed a fully functional **osTicket help desk system** using a Windows server 2019 Virtual Machine.
+Configured IIS, PHP, MySQL, and required dependencies to simulate a real-world IT support ticketing system.
 
-The objective was to build the full backend environment required to run a production-style ticketing system, including:
+This project demonstrates:
 
+* System administration (Windows Server concepts on client OS)
 * Web server configuration (IIS)
-* PHP runtime setup
-* MySQL database installation
-* osTicket application deployment
-
-This simulates how IT teams deploy internal support systems in real environments.
-
-This implementation followed a structured lab process. 
+* Database setup (MySQL)
+* Application deployment (osTicket)
+* Troubleshooting and service validation
 
 ---
 
-# Environment Setup
+## 🖥️ Environment Setup
 
-## Azure Virtual Machine Configuration
+* **Platform:** Microsoft Azure
+* **Virtual Machine:** Windows Server 2019
+* **VM Name:** `DC-2019`
+* **Access Method:** Virtual Box
 
-A Windows 10 virtual machine was created in Microsoft Azure.
+---
 
-```bash
-VM Name: osticket-vm
-Username: labuser
+## ⚠️ Security Note
+
+Passwords are shown for lab purposes only.
+In real environments, always use a password manager such as:
+
+* KeePass
+* LastPass
+* NordPass
+
+---
+
+## ⚙️ Installation Steps
+
+### 1. Prepare the VM
+
+* Go to Microsoft’s official **Windows Server 2019 Evaluation Center** page, sign in, register, and download the **ISO**. The evaluation version is listed as a **180-day trial** (Microsoft Evaluation Center: Windows Server 2019) ([Microsoft][1])
+
+* Download and install **Oracle VirtualBox for Windows hosts** from the official VirtualBox downloads page (VirtualBox Downloads) ([VirtualBox][2])
+
+* Open VirtualBox and click **New**. Name the VM something like **Windows Server 2019**, set:
+
+   * **Type:** Microsoft Windows
+   * **Version:** Windows 2019 (64-bit)
+
+* Give the VM hardware:
+
+   * **RAM:** at least **4096 MB**
+   * **CPU:** at least **2 cores**
+   * Create a **virtual hard disk** with about **50–60 GB**
+
+* Go into the VM **Settings > Storage**, click the empty optical drive, and attach the **Windows Server 2019 ISO** you downloaded.
+
+* Start the VM. The Windows installer will boot. Follow the setup steps:
+
+   * Pick language
+   * Click **Install now**
+   * Choose the edition you want
+   * Select **Custom Install**
+   * Install to the virtual disk
+
+* After installation finishes, log in and install **VirtualBox Guest Additions** for better screen resizing, mouse support, and general VM use. VirtualBox provides Guest Additions through the VM menu and the included ISO (VirtualBox manual) ([VirtualBox][3])
+
+* Last step, set up networking in VirtualBox:
+
+   * **NAT** if you just want internet inside the VM
+   * **Bridged Adapter** if you want the VM to appear on your home network
+
+Links for vm and virtualbox:
+
+[1]: https://www.microsoft.com/en-us/evalcenter/download-windows-server-2019?utm_source=chatgpt.com "Windows Server 2019 | Microsoft Evaluation Center"
+[2]: https://www.virtualbox.org/wiki/Downloads?utm_source=chatgpt.com "Downloads"
+[3]: https://www.virtualbox.org/manual/topics/guestadditions.html?utm_source=chatgpt.com "Guest Additions"
+
+---
+
+### 2. Enable IIS with CGI
+
+* Open **Windows Features**
+* Enable:
+
+  * Internet Information Services (IIS)
+  * World Wide Web Services
+  * Application Development Features
+  * ✅ CGI
+
+---
+
+### 3. Install Required Components
+
+From installation folder:
+
+* Install **PHP Manager for IIS**
+* Install **Rewrite Module**
+* Install **VC++ Redistributable (x86)**
+
+---
+
+### 4. Configure PHP
+
+* Create directory:
+
+  ```
+  C:\PHP
+  ```
+* Extract:
+
+  ```
+  php-7.3.8-nts-Win32-VC15-x86.zip → C:\PHP
+  ```
+
+---
+
+### 5. Install MySQL
+
+* Install **MySQL 5.5.62**
+
+* Select:
+
+  * Typical Setup
+  * Launch Configuration Wizard
+
+* Configuration:
+
+  ```
+  Username: root
+  Password: root
+  ```
+
+---
+
+### 6. Configure IIS
+
+* Open IIS as Administrator
+
+* Go to **PHP Manager**
+
+* Register PHP:
+
+  ```
+  C:\PHP\php-cgi.exe
+  ```
+
+* Restart IIS:
+
+  * Stop → Start
+
+---
+
+### 7. Install osTicket
+
+* Extract:
+
+  ```
+  osTicket-v1.15.8.zip
+  ```
+
+* Copy **upload folder** to:
+
+  ```
+  C:\inetpub\wwwroot
+  ```
+
+* Rename:
+
+  ```
+  upload → osTicket
+  ```
+
+* Restart IIS again
+
+---
+
+### 8. Access Web Installer
+
+Open in browser:
+
+```
+http://localhost/osTicket
 ```
 
-The system was accessed using **Remote Desktop Protocol (RDP)** to perform all configurations.
+---
+
+### 9. Enable Required PHP Extensions
+
+In IIS:
+
+* Go to:
+
+  ```
+  Sites → Default → osTicket → PHP Manager
+  ```
+
+Enable:
+
+* php_imap.dll
+* php_intl.dll
+* php_opcache.dll
+
+Refresh the browser
 
 ---
 
-# Web Server Configuration (IIS)
+### 10. Configure osTicket Files
 
-Internet Information Services (IIS) was installed to host the osTicket web application.
+Rename config file:
 
-### Features Enabled
-
-* Web Server (IIS)
-* Application Development Features
-* CGI (Required for PHP execution)
-
-This allows IIS to process dynamic PHP content required by osTicket.
-
----
-
-# PHP Installation and Configuration
-
-To support osTicket, PHP and required modules were installed.
-
-### Components Installed
-
-* PHP Manager for IIS
-* URL Rewrite Module
-* PHP 7.3 Runtime
-* Microsoft Visual C++ Redistributable
-
-### Directory Setup
-
-```bash
-C:\PHP
+```
+C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php
+→ ost-config.php
 ```
 
-PHP was registered in IIS using:
+Set permissions:
 
-```bash
-php-cgi.exe
-```
+* Disable inheritance
+* Remove all
+* Add:
 
-IIS was restarted to apply changes.
+  ```
+  Everyone → Full Control
+  ```
 
 ---
 
-# Database Installation (MySQL)
+### 11. Database Setup (HeidiSQL)
 
-MySQL was installed to handle ticket data, user records, and system configuration.
+* Install **HeidiSQL**
 
-### Configuration
+* Create session:
 
-```bash
+  ```
+  Username: root
+  Password: root
+  ```
+
+* Create database:
+
+  ```
+  osTicket
+  ```
+
+---
+
+### 12. Complete Web Installation
+
+In browser:
+
+* Helpdesk Name: `Helpdesk`
+* Default Email: (any valid email)
+
+Database config:
+
+```
+Database: osTicket
 Username: root
 Password: root
 ```
 
----
+Click:
 
-## Issue Encountered — MySQL Access Denied
-
-### Problem
-
-During setup, MySQL failed with:
-
-```bash
-Error 1045: Access denied for user 'root'@'localhost'
 ```
-
-### Cause
-
-* Previous MySQL installation data remained on the system
-* Old configuration conflicted with new credentials
-
-### Fix
-
-* Fully uninstalled MySQL
-* Deleted leftover directories:
-
-```bash
-C:\ProgramData\MySQL
+Install Now
 ```
-
-* Reinstalled MySQL using standard configuration
-* Verified login via command line
-
-This reflects real-world troubleshooting of **service configuration conflicts**.
 
 ---
 
-# osTicket Application Installation
+## ✅ Access URLs
 
-The osTicket application was deployed into the IIS web directory.
+* **Admin Panel:**
 
-### Directory Path
-
-```bash
-C:\inetpub\wwwroot\osTicket
 ```
-
-The application files were extracted and placed correctly inside this directory.
-
-IIS was restarted after deployment.
-
----
-
-## PHP Extensions Enabled
-
-The following extensions were required for osTicket functionality:
-
-```bash
-php_imap.dll
-php_intl.dll
-php_opcache.dll
-```
-
-These support:
-
-* Email handling
-* Internationalization
-* Performance optimization
-
----
-
-# Configuration File Setup
-
-The default configuration file was renamed:
-
-```bash
-ost-sampleconfig.php → ost-config.php
-```
-
-### Permissions Applied
-
-* Disabled inheritance
-* Assigned full control (temporary for setup)
-
-This allows the web installer to write configuration settings.
-
----
-
-# Database Connection Setup
-
-Using **HeidiSQL**, a database was created:
-
-```bash
-Database Name: osTicket
-```
-
-This database was linked during the web-based installation.
-
----
-
-# Accessing osTicket
-
-### Admin Portal
-
-```bash
 http://localhost/osTicket/scp/login.php
 ```
 
-### End User Portal
+* **End User Portal:**
 
-```bash
+```
 http://localhost/osTicket/
 ```
 
 ---
 
-# Issue Encountered — HTTP 404 Error
+## 🧹 Post-Installation Cleanup
 
-### Problem
+Delete setup folder:
 
-Accessing the admin login page returned:
-
-```bash
-HTTP 404 – Not Found
 ```
-
-### Cause
-
-* Incorrect folder structure
-* osTicket files were nested inside an extra `upload` directory
-* IIS could not locate required files like:
-
-```bash
-scp/login.php
-```
-
-### Fix
-
-* Moved all contents from the `upload` folder directly into:
-
-```bash
-C:\inetpub\wwwroot\osTicket
-```
-
-* Ensured directories like `scp`, `include`, and `api` were at the root level
-
-After correcting the structure, the site loaded successfully.
-
----
-
-# Post-Installation Security
-
-After successful installation, cleanup and security hardening steps were performed.
-
-### Removed Setup Directory
-
-```bash
 C:\inetpub\wwwroot\osTicket\setup
 ```
 
-### Secured Configuration File
+Set config permissions to:
 
-```bash
+```
+Read Only:
 C:\inetpub\wwwroot\osTicket\include\ost-config.php
 ```
 
-Permissions set to:
+---
 
-* Read-only
+## 🔧 Troubleshooting (Real Issues Encountered)
 
-This prevents unauthorized modifications.
+**Issue: HTTP 404 when accessing osTicket**
+
+* Cause: Incorrect folder structure or rename not done
+* Fix: Ensure:
+
+  ```
+  upload → osTicket
+  ```
+
+  inside `wwwroot`
+
+**Issue: PHP extensions not enabled**
+
+* Cause: Missing required modules
+* Fix: Enable in IIS PHP Manager
+
+**Issue: MySQL not recognized**
+
+* Cause: Service not running or PATH not set
+* Fix:
+
+  * Start MySQL service
+  * Use full path to mysql.exe
 
 ---
 
-# Skills Demonstrated
+## 💡 What This Project Shows
 
-### System Administration
+* Ability to deploy a full-stack web application
+* Understanding of:
 
-* Windows Server configuration
-* IIS setup and management
-
-### Web Hosting
-
-* Hosting PHP applications on IIS
-* Configuring application dependencies
-
-### Database Management
-
-* MySQL installation and troubleshooting
-* Database creation and integration
-
-### Troubleshooting
-
-* Resolving service authentication errors
-* Fixing web server directory structure issues
-
-### Security Practices
-
-* Removing installation artifacts
-* Securing configuration files
+  * IIS (web server)
+  * PHP (backend runtime)
+  * MySQL (database)
+* Real troubleshooting experience (404 errors, services, configs)
+* Hands-on system administration in a cloud environment
 
 ---
 
-# Outcome
+## 📂 Suggested Repo Additions
 
-This phase demonstrates the ability to deploy a fully functional help desk system from scratch, including all required backend services.
+To make this stand out more to recruiters:
 
-The system is now ready for:
+* 📸 Screenshots:
 
-* Help desk configuration
-* User and role setup
-* Ticket lifecycle management
+  * IIS setup
+  * osTicket UI
+  * HeidiSQL database
+* 📄 Diagram:
+
+  * VM → IIS → PHP → MySQL → osTicket
+* 🧠 Add a short reflection:
+
+  * What broke
+  * How you fixed it
 
 ---
 
-If you want next level improvement, I can combine this with Part 2 and 3 later into a **single polished portfolio project** that looks like real enterprise documentation instead of separate labs.
+If you want next step, I’ll:
+
+* Turn this into a **killer GitHub README with badges + visuals**
+* Help you write a **LinkedIn post that gets recruiter attention**
+* Or review your screenshots and tell you exactly what to include
