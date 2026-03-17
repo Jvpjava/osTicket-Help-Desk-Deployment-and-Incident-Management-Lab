@@ -1,7 +1,3 @@
-Here is **Part 1 rewritten into a clean, professional GitHub README section**. This is structured for employers to quickly understand what you did and why it matters.
-
----
-
 # osTicket Help Desk Deployment — Part 1 (System Installation)
 
 ## Overview
