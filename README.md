@@ -315,14 +315,14 @@ Set permissions:
 
 * Disable inheritance
 * Remove all
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/20. Assign permissions ost-config.png" width="700"/>
+</p>
 * Add:
 
   ```
   Everyone → Full Control
   ```
-<p align="center">
-  <img src="Lab 3 images/Part 1 images/20. Assign permissions ost-config.png" width="700"/>
-</p>
 <p align="center">
   <img src="Lab 3 images/Part 1 images/20. Everyone full control.jpg" width="700"/>
 </p>
@@ -335,19 +335,30 @@ Set permissions:
 
 * Install **HeidiSQL**
 
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/22. Install heidiSQL.png" width="700"/>
+</p>
+
 * Create session:
 
   ```
   Username: root
   Password: root
   ```
-
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/24. New Session.png" width="700"/>
+</p>
 * Create database:
 
   ```
   osTicket
   ```
-
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/25. Connect database.png" width="700"/>
+</p>
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/26. osTicket Database.png" width="700"/>
+</p>
 ---
 
 ### 12. Complete Web Installation
@@ -364,13 +375,23 @@ Database: osTicket
 Username: root
 Password: root
 ```
-
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/27. Connect heidi session with osTicket.png" width="700"/>
+</p>
 Click:
 
 ```
 Install Now
 ```
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/30. Congratulations osTicket has been configured.png" width="700"/>
+</p>
 
+
+* Refresh heidi: 
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/29. osTicket refresh 2.png" width="700"/>
+</p>
 ---
 
 ## ✅ Access URLs
