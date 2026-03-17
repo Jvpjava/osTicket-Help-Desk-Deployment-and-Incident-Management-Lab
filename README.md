@@ -92,11 +92,18 @@ This project demonstrates:
 
   * Internet Information Services (IIS)
   * World Wide Web Services
-  * Application Development Features
-  * ✅ CGI
- 
 <p align="center">
   <img src="Lab 3 images/Part 1 images/1. Enable Features with Server role IIS.jpg.png" width="700"/>
+</p>
+
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/1. Enable Features with Server role IIS.jpg.png" width="700"/>
+</p>
+  * Application Development Features
+  * ✅ CGI
+
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/2. Server Roles CGI.png" width="700"/>
 </p>
 
 ---
@@ -106,9 +113,25 @@ This project demonstrates:
 From installation folder:
 
 * Install **PHP Manager for IIS**
-* Install **Rewrite Module**
-* Install **VC++ Redistributable (x86)**
 
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/4. Install PHP Manager.png" width="700"/>
+</p>
+
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/4. Install PHP Manager Complete.png" width="700"/>
+</p>
+* Install **Rewrite Module**
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/5. Install Rewrite Module.png" width="700"/>
+</p>
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/5. Install Rewrite Module 2.png" width="700"/>
+</p>
+* Install **VC++ Redistributable (x86)**
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/5. Install Rewrite Module 2.png" width="700"/>
+</p>
 ---
 
 ### 4. Configure PHP
@@ -159,6 +182,10 @@ From installation folder:
 * Restart IIS:
 
   * Stop → Start
+ 
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/9. MySQL Finish.png" width="700"/>
+</p>
 
 ---
 
