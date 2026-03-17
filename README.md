@@ -133,7 +133,7 @@ From installation folder:
 </p>
 * Install **VC++ Redistributable (x86)**
 <p align="center">
-  <img src="Lab 3 images/Part 1 images/Install VCRedist.png" width="700"/>
+  <img src="Lab 3 images/Part 1 images/8. Install VCRedist.png" width="700"/>
 </p>
 ---
 
@@ -144,18 +144,36 @@ From installation folder:
   ```
   C:\PHP
   ```
+
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/6. Create a PHP Directory in C Drive.png" width="700"/>
+</p>
+  
 * Extract:
 
   ```
   php-7.3.8-nts-Win32-VC15-x86.zip → C:\PHP
   ```
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/6. Extract PHP File in the PHP Folder.png" width="700"/>
+</p>
 
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/7. PHP Extract.jpg" width="700"/>
+</p>
 ---
 
 ### 5. Install MySQL
 
 * Install **MySQL 5.5.62**
 
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/9. Install MySQL.png" width="700"/>
+</p>
+
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/9. MySQL Finish.png" width="700"/>
+</p>
 * Select:
 
   * Typical Setup
@@ -167,27 +185,45 @@ From installation folder:
   Username: root
   Password: root
   ```
-
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/9. MySQL Set up.png" width="700"/>
+</p>
 ---
 
 ### 6. Configure IIS
 
 * Open IIS as Administrator
 
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/10. IIS.png" width="700"/>
+</p>
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/10. IIS Service.png" width="700"/>
+</p>
 * Go to **PHP Manager**
+
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/11. PHP Manager in IIS.png" width="700"/>
+</p>
 
 * Register PHP:
 
   ```
   C:\PHP\php-cgi.exe
   ```
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/12. Register New PHP version.png" width="700"/>
+</p>
 
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/12. Register PHP Folder to the service.png" width="700"/>
+</p>
 * Restart IIS:
 
   * Stop → Start
  
 <p align="center">
-  <img src="Lab 3 images/Part 1 images/9. MySQL Finish.png" width="700"/>
+  <img src="Lab 3 images/Part 1 images/13. Reload IIS Service.png" width="700"/>
 </p>
 
 ---
@@ -199,7 +235,6 @@ From installation folder:
   ```
   osTicket-v1.15.8.zip
   ```
-
 * Copy **upload folder** to:
 
   ```
@@ -214,6 +249,9 @@ From installation folder:
 
 * Restart IIS again
 
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/14. Install OS Ticket.png" width="700"/>
+</p>
 ---
 
 ### 8. Access Web Installer
@@ -223,7 +261,13 @@ Open in browser:
 ```
 http://localhost/osTicket
 ```
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/15. Browse http 80.png" width="700"/>
+</p>
 
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/16. Browser.png" width="700"/>
+</p>
 ---
 
 ### 9. Enable Required PHP Extensions
