@@ -397,12 +397,12 @@ Install Now
 ```
 http://localhost/osTicket/scp/login.php
 ```
-
-* **End User Portal:**
-
-```
-http://localhost/osTicket/
-```
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/32. Login to OSTICKET.png" width="700"/>
+</p>
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/33. osTicket web browser.png" width="700"/>
+</p>
 
 ---
 
@@ -422,36 +422,7 @@ C:\inetpub\wwwroot\osTicket\include\ost-config.php
 ```
 
 ---
-
-## 🔧 Troubleshooting (Real Issues Encountered)
-
-**Issue: HTTP 404 when accessing osTicket**
-
-* Cause: Incorrect folder structure or rename not done
-* Fix: Ensure:
-
-  ```
-  upload → osTicket
-  ```
-
-  inside `wwwroot`
-
-**Issue: PHP extensions not enabled**
-
-* Cause: Missing required modules
-* Fix: Enable in IIS PHP Manager
-
-**Issue: MySQL not recognized**
-
-* Cause: Service not running or PATH not set
-* Fix:
-
-  * Start MySQL service
-  * Use full path to mysql.exe
-
----
-
-## 💡 What This Project Shows
+## What This Project Shows
 
 * Ability to deploy a full-stack web application
 * Understanding of:
@@ -461,25 +432,6 @@ C:\inetpub\wwwroot\osTicket\include\ost-config.php
   * MySQL (database)
 * Real troubleshooting experience (404 errors, services, configs)
 * Hands-on system administration in a cloud environment
-
----
-
-## 📂 Suggested Repo Additions
-
-To make this stand out more to recruiters:
-
-* 📸 Screenshots:
-
-  * IIS setup
-  * osTicket UI
-  * HeidiSQL database
-* 📄 Diagram:
-
-  * VM → IIS → PHP → MySQL → osTicket
-* 🧠 Add a short reflection:
-
-  * What broke
-  * How you fixed it
 
 ---
 
