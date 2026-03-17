@@ -240,12 +240,9 @@ From installation folder:
   ```
   C:\inetpub\wwwroot
   ```
-
-* Rename:
-
-  ```
-  upload → osTicket
-  ```
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/osTicket zip to wwwroot.png" width="700"/>
+</p>
 
 * Restart IIS again
 
