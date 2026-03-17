@@ -128,9 +128,12 @@ From installation folder:
 <p align="center">
   <img src="Lab 3 images/Part 1 images/5. Install Rewrite Module 2.png" width="700"/>
 </p>
-* Install **VC++ Redistributable (x86)**
 <p align="center">
   <img src="Lab 3 images/Part 1 images/5. Install Rewrite Module 2.png" width="700"/>
+</p>
+* Install **VC++ Redistributable (x86)**
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/Install VCRedist.png" width="700"/>
 </p>
 ---
 
