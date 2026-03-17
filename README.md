@@ -87,13 +87,17 @@ This project demonstrates:
 
 ### 2. Enable IIS with CGI
 
-* Open **Windows Features**
+* Open **Windows Server Roles Features**
 * Enable:
 
   * Internet Information Services (IIS)
   * World Wide Web Services
   * Application Development Features
   * ✅ CGI
+ 
+<p align="center">
+  <img src="Lab 3 images/Part 1 images/1. Enable Features with Server role IIS.jpg.png" width="700"/>
+</p>
 
 ---
 
