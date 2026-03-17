@@ -288,10 +288,6 @@ Enable:
 
 Refresh the browser and go to
 
-* http://127.0.0.1/osTicket/
-<p align="center">
-  <img src="Lab 3 images/Part 1 images/18. Self Host website.png" width="700"/>
-</p>
 * http://127.0.0.1/osTicket/upload/setup/
 <p align="center">
   <img src="Lab 3 images/Part 1 images/18. OsTicket website set up.png" width="700"/>
