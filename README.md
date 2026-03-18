@@ -420,23 +420,3 @@ Set config permissions to:
 Read Only:
 C:\inetpub\wwwroot\osTicket\include\ost-config.php
 ```
-
----
-## What This Project Shows
-
-* Ability to deploy a full-stack web application
-* Understanding of:
-
-  * IIS (web server)
-  * PHP (backend runtime)
-  * MySQL (database)
-* Real troubleshooting experience (404 errors, services, configs)
-* Hands-on system administration in a cloud environment
-
----
-
-If you want next step, I’ll:
-
-* Turn this into a **killer GitHub README with badges + visuals**
-* Help you write a **LinkedIn post that gets recruiter attention**
-* Or review your screenshots and tell you exactly what to include
