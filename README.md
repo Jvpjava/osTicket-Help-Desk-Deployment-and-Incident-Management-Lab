@@ -49,135 +49,135 @@ This project demonstrates:
 
 * Open VirtualBox and click **New**. Name the VM something like **Windows Server 2019**, set:
   <p align="center">
-     <img src="Lab 3 images/Server2019Img/1. Create Server VM.png" width="700"/>
+     <img src="Server2019Img/1. Create Server VM.png" width="700"/>
   </p>
    * **Type:** Microsoft Windows
    * **Version:** Windows 2019 (64-bit)
    <p align="center">
-        <img src="Lab 3 images/Server2019Img/1. Server ISO Image and Name.png" width="700"/>
+        <img src="Server2019Img/1. Server ISO Image and Name.png" width="700"/>
     </p>
 * Give the VM hardware:
 
    * **RAM:** at least **4096 MB**
      <p align="center">
-        <img src="Lab 3 images/Server2019Img/1. Server CPU & RAM.png" width="700"/>
+        <img src="Server2019Img/1. Server CPU & RAM.png" width="700"/>
      </p>
    * **CPU:** at least **2 cores**
      <p align="center">
-        <img src="Lab 3 images/Server2019Img/1. Server CPU & RAM.png" width="700"/>
+        <img src="Server2019Img/1. Server CPU & RAM.png" width="700"/>
      </p>
    * Create a **virtual hard disk** with about **50–60 GB**
      <p align="center">
-        <img src="Lab 3 images/Server2019Img/1. Server Storage.png" width="700"/>
+        <img src="Server2019Img/1. Server Storage.png" width="700"/>
      </p>
 
 * Start the VM. The Windows installer will boot. Follow the setup steps:
   <p align="center">
-    <img src="Lab 3 images/Server2019Img/1. Start your server.png" width="300"/>
+    <img src="Server2019Img/1. Start your server.png" width="300"/>
   </p>
 
    * Pick language
   <p align="center">
-    <img src="Lab 3 images/Server2019Img/2. Server Installation.png" width="700"/>
+    <img src="Server2019Img/2. Server Installation.png" width="700"/>
   </p>
    * Choose the edition you want
   <p align="center">
-    <img src="Lab 3 images/Server2019Img/2. Server OS.png" width="700"/>
+    <img src="Server2019Img/2. Server OS.png" width="700"/>
   </p>
    * Select **Custom Install** Install to the virtual disk
    <p align="center">
-    <img src="Lab 3 images/Server2019Img/2. Server Drive.png" width="700"/>
+    <img src="Server2019Img/2. Server Drive.png" width="700"/>
   </p>
 
 * After installation finishes, log in and install **VirtualBox Guest Additions** for better screen resizing, mouse support, and general VM use. VirtualBox provides Guest Additions through the VM menu and the included ISO (VirtualBox manual) ([VirtualBox][3])
   <p align="center">
-    <img src="Lab 3 images/Server2019Img/2. Server installation Complete.png" width="700"/>
+    <img src="Server2019Img/2. Server installation Complete.png" width="700"/>
   </p>
 
   <p align="center">
-    <img src="Lab 3 images/Server2019Img/2. Server Starting.png" width="700"/>
+    <img src="Server2019Img/2. Server Starting.png" width="700"/>
   </p>
 
   <p align="center">
-    <img src="Lab 3 images/Server2019Img/3. Admin Password.png" width="700"/>
+    <img src="Server2019Img/3. Admin Password.png" width="700"/>
   </p>
 
   <p align="center">
-    <img src="Lab 3 images/Server2019Img/3. Signin.png" width="700"/>
+    <img src="Server2019Img/3. Signin.png" width="700"/>
   </p>
 
   <p align="center">
-    <img src="Lab 3 images/Server2019Img/4. Server Manager.png" width="700"/>
+    <img src="Server2019Img/4. Server Manager.png" width="700"/>
   </p>
 
   <p align="center">
-    <img src="Lab 3 images/Server2019Img/2. Server installation Complete.png" width="700"/>
+    <img src="Server2019Img/2. Server installation Complete.png" width="700"/>
   </p>
 
   <p align="center">
-    <img src="Lab 3 images/Server2019Img/4. Server Manager.png" width="700"/>
+    <img src="Server2019Img/4. Server Manager.png" width="700"/>
   </p>
 Add Roles and Features
   <p align="center">
-    <img src="Lab 3 images/Server2019Img/4. Add Roles and features.png" width="700"/>
+    <img src="Server2019Img/4. Add Roles and features.png" width="700"/>
   </p>
 Click role based
   <p align="center">
-    <img src="Lab 3 images/Server2019Img/4. Role based.png" width="700"/>
+    <img src="Server2019Img/4. Role based.png" width="700"/>
   </p>
 For Roles use Active Directory Domain Services
   <p align="center">
-    <img src="Lab 3 images/Server2019Img/4. Active Directory Domain Services.png" width="700"/>
+    <img src="Server2019Img/4. Active Directory Domain Services.png" width="700"/>
   </p>
 Add Features
   <p align="center">
-    <img src="Lab 3 images/Server2019Img/5. Add Features.png" width="700"/>
+    <img src="Server2019Img/5. Add Features.png" width="700"/>
   </p>
 Install 
   <p align="center">
-    <img src="Lab 3 images/Server2019Img/5. Install.png" width="700"/>
+    <img src="Server2019Img/5. Install.png" width="700"/>
   </p>
 Promote the server to a Domain Controller
  <p align="center">
-    <img src="Lab 3 images/Server2019Img/5. Promote to DC.png" width="700"/>
+    <img src="Server2019Img/5. Promote to DC.png" width="700"/>
   </p>
   Root Domain Name
    <p align="center">
-    <img src="Lab 3 images/Server2019Img/6. Root domain name.png" width="700"/>
+    <img src="Server2019Img/6. Root domain name.png" width="700"/>
   </p>
   Domain Controller Password
    <p align="center">
-    <img src="Lab 3 images/Server2019Img/6. DC Password.png" width="700"/>
+    <img src="Server2019Img/6. DC Password.png" width="700"/>
   </p>
   Install Prerequesites
    <p align="center">
-    <img src="Lab 3 images/Server2019Img/6. Install Prerequisites.png" width="700"/>
+    <img src="Server2019Img/6. Install Prerequisites.png" width="700"/>
   </p>
   Server has to restart
    <p align="center">
-    <img src="Lab 3 images/Server2019Img/6. AD Restart.png" width="700"/>
+    <img src="Server2019Img/6. AD Restart.png" width="700"/>
   </p>
   Sign into the domain controller
    <p align="center">
-    <img src="Lab 3 images/Server2019Img/7. Signin to domain.png" width="700"/>
+    <img src="Server2019Img/7. Signin to domain.png" width="700"/>
   </p>
   Go to server manager - Active directory users and computers
    <p align="center">
-    <img src="Lab 3 images/Server2019Img/8. AD users and computers.png" width="700"/>
+    <img src="Server2019Img/8. AD users and computers.png" width="700"/>
   </p>
   Verify Active directory users and computers is in domain GetHired
    <p align="center">
-    <img src="Lab 3 images/Server2019Img/9. Domain GetHired Welcome.png" width="700"/>
+    <img src="Server2019Img/9. Domain GetHired Welcome.png" width="700"/>
   </p>
 
 * Last step, set up networking in VirtualBox:
    * **Go to Devices and the network settings
  <p align="center">
-    <img src="Lab 3 images/Server2019Img/9. Devices.png" width="700"/>
+    <img src="Server2019Img/9. Devices.png" width="700"/>
 </p>
     * **host-only adapter** in network settings in virtualbox apply host-only adapter.
  <p align="center">
-    <img src="Lab 3 images/Server2019Img/9. Network settings host adapter.png" width="700"/>
+    <img src="Server2019Img/9. Network settings host adapter.png" width="700"/>
 </p>
 
 ---
