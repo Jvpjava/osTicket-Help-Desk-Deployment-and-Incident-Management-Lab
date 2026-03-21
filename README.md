@@ -76,8 +76,9 @@ This project demonstrates:
 
 * Last step, set up networking in VirtualBox:
 
-   * **NAT** if you just want internet inside the VM
-   * **Bridged Adapter** if you want the VM to appear on your home network
+   * **host-only adapter** in network settings in virtualbox apply host-only adapter.
+
+* To add Active Directory users and computers watch this video: [Click here](https://www.youtube.com/watch?v=8-P0zbMELzo)
 
 <p align="center">
   <img src="Lab 3 images/Part 1 images/Virtualbox VM Sign in.png" width="700"/>
