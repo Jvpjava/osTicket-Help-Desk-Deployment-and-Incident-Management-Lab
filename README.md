@@ -27,7 +27,7 @@ This project demonstrates:
   
 ---
 
-## Installation Steps
+## Installation Steps for Virtualbox and Window Server 2019 (Domain Controller)
 
 <p align="center">
   <img src="Lab 3 images/Part 1 images/Virtualbox banner.png" width="700"/>
@@ -51,6 +51,7 @@ This project demonstrates:
   <p align="center">
      <img src="Server2019Img/1. Create Server VM.png" width="700"/>
   </p>
+  
    * **Type:** Microsoft Windows
    * **Version:** Windows 2019 (64-bit)
    <p align="center">
