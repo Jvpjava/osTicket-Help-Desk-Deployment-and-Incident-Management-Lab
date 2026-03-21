@@ -186,7 +186,12 @@ Promote the server to a Domain Controller
 
 * Open **Windows Server Roles Features**
 * Enable:
-
+* <p align="center">
+    <img src="Server2019Img/4. Server Manager.png" width="700"/>
+  </p>
+  <p align="center">
+    <img src="Server2019Img/4. Add Roles and features.png" width="700"/>
+</p>
   * Internet Information Services (IIS)
   * World Wide Web Services
 <p align="center">
